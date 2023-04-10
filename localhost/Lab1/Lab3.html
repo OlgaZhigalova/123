@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<link href="css/styles.css" rel="stylesheet">
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+</div>
+
+ <!-- Подключаем jQuery с CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Подключаем Bootstrap Bundle JS с CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+<body>
+
+<header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Лабораторная работа №3</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+
+          </ul>
+          <form class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Поиск" aria-label="Поиск">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+      <h1 class="mt-5">Задание</h1>
+      <p class="lead">Добавьте на страницу JavaScript код, который будет обрабатывать нажатие кнопок выставления и очистки оценок, а также код для кнопки подсчета средней оценки по группе.</p>
+      <p>Алгоритм такой - при нажатии на кнопку оценки выбираем элементы класса <code>rating</code> на странице и присваиваем их свойству <code>value</code> значение требуемой оценки. Далее при нажатии на кнопку подсчета средней оценки опять выбираем все элементы класса <code>rating</code> и суммируем значение их свойства <code>value</code>, а в конце делим на общее число оценок. Далее выбираем элемент с идентификатором <code>avegage</code> и вызываем у него функцию <code>text</code>, в которую посылаем полученной среднее значение</p>
+      <p>Подсказки: 
+      	<p>Обратиться к какому-либо элементу страницы по идентификатору:<code>$("#id_элемента")</code></p>
+      	<p>Обратиться к группе элементов страницы по названию класса:<code>$(".class_элементов")</code></p>
+      	<p>Присвоить полю ввода значение:<code>переменная_поля.value = "123"</code></p>
+      	<p>Преобразовать строковые данные в данные типа int:<code>parseInt("123", 10)</code></p>
+      	<p>Перебрать все элементы массива:<code>for(var i = 0;i<переменная_массива.length;i++) переменная_массива[i].value = "5"; });</code></p>
+
+      	<p>Привязать выполнение кода к нажатию кнопки:<code>    		  $("#id_элемента").click(function(){
+//код, выполняющийся при нажатии элемента
+			  });
+			  </code></p>
+  		</p>
+  	</p>
+      <button type="button" id="success" class="btn btn-success">Всем 5</button>
+      <button type="button" id="info" class="btn btn-info">Всем 4</button>
+      <button type="button" id="warning" class="btn btn-warning">Всем 3</button>
+      <button type="button" id="danger" class="btn btn-danger">Всем 2</button>
+      <button type="button" id="primary" class="btn btn-primary">Очистить оценки</button>
+	  <script>
+	  $("#success").click(function(){
+	  $('input').attr("value", "5");
+	});
+	  $("#info").click(function(){
+	  $('input').attr("value", "4");
+	});
+	  $("#warning").click(function(){
+	  $('input').attr("value", "3");
+	});
+	  $("#danger").click(function(){
+	  $('input').attr("value", "2");
+	});
+	  $("#primary").click(function(){
+	  $('input').attr("value", "");
+	});
+	
+	  </script>
+      	<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">№</th>
+		      <th scope="col">ФИО</th>
+		      <th scope="col">Оценка за экзамен</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  </tbody>
+		</table>
+		<button type="button" id="button_avg" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Подсчитать средний балл</button>
+		<button type="button" id="button_hello" class="btn btn-primary" >Привет</button>
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Средняя оценка по группе:</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body" id="average">
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+    </main>
+
+    <footer class="footer">
+
+    </footer>
+<!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+    <script src="js/jquery.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+var listOfRatings;
+$( document ).ready(function() {
+var students = [ "Аникин Александр",
+"Атабоев Миразиз",
+"Бурлаков Егор",
+"Гацко Алёна",
+"Денисова Валерия",
+"Довбня Максим",
+"Дружинин Даниил",
+"Евтушенко Артём",
+"Жигалова Ольга",
+"Зарипов Некруз",
+"Киреев Руслан",
+"Круглов Иван",
+"Лягина Анастасия",
+"Мартышков Михаил",
+"Рогонов Валерий",
+"Родионов Никита",
+"Саидов Кобилджон",
+"Семисаженов Егор",
+"Федосова Виктория",
+"Шавкат Мансурджон",
+"Широков Данила",
+"Ширяев Алексей",
+"Шмонина Екатерина" ];
+for (var i = 0; i < students.length; i++) {
+
+$("tbody").append("<tr><th scope='row'>"+ (i + 1) +"</th><td>"+ students[i] +"</td><td><input class='rating' type='text' value='Балл'></tr>")
+}
+document.querySelector('#button_avg').addEventListener('click', () => {
+Ratings = document.querySelectorAll('.rating');
+let serf = 0;
+for (let i = 0; i < Ratings.length; i++) {
+const e = Ratings[i];
+serf += parseInt(e.value);
+}
+
+document.querySelector('#average').innerHTML = (serf/Ratings.length).toFixed(2);
+
+});
+document.querySelector('#button_hello').addEventListener('click', () => {
+alert('Привет мир!');
+});
+});
+
+</script>
+title="Закрыть">Закрыть</span></td></tr></table></div></div></div><div id="tap-translate"></div>
+</body>
+<script src="./index.js"></script>
+</html>

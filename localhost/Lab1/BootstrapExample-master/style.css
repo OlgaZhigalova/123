@@ -1,0 +1,30 @@
+body {
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+.header {
+    background: linear-gradient(to top, #e41a4a,#6439b7 );
+    width: 100%;
+    min-height: 115px;
+}
+
+.header-content {
+    margin-left: 20px;
+    color: #d9cec1;
+}
+
+.container {
+    margin-left: 20px;
+}
+
+.footer {
+    background: linear-gradient(to bottom, #e41a4a,#6439b7 );
+    min-height: 90px;
+}
+
+.footer-content {
+    text-align: center;
+    font-size: 18px;
+    color: #d9cec1;
+}
